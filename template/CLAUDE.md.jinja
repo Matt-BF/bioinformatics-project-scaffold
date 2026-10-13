@@ -1,9 +1,0 @@
-# {{ project_name }}
-
-{{ description }}
-
-- Quarto manuscript project; the article is `manuscript.qmd` (render with `quarto render`).
-- Environment manager: {{ env_manager }} — {% if env_manager == 'pixi' %}run commands with `pixi run`, dependencies in `pixi.toml`{% else %}run commands with `uv run`, dependencies in `pyproject.toml`{% endif %}.
-- Don't pin package versions manually — the lockfile (`pixi.lock` / `uv.lock`) pins exact versions; update deliberately with `pixi update` / `uv lock --upgrade`.
-- Layout: `data/` inputs, `figures/` outputs, `scripts/` (incl. Slurm jobs), `references.bib` for citations.
-- Never edit `.copier-answers.yml` — it belongs to Copier and enables `copier update`.
