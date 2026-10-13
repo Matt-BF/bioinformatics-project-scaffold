@@ -1,7 +1,7 @@
 # Environments
-.pixi/
 .venv/
-!./pixi/config.toml
+.pixi/*
+!.pixi/config.toml
 
 # Quarto build output
 .quarto/
