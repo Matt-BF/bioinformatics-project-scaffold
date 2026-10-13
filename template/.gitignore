@@ -20,9 +20,11 @@ slurm-*.out
 .nextflow/
 .nextflow.log*
 
-# Binaries & containers
-binaries/
-containers/
+# Binaries & containers (dirs scaffold, contents stay out of git)
+binaries/*
+!binaries/.gitkeep
+containers/*
+!containers/.gitkeep
 
 # Large files
 data/
