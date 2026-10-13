@@ -5,10 +5,14 @@
 ## Setup
 
 {% if env_manager == 'pixi' %}
+This project is scaffolded with `pixi`
+
 ```bash
 pixi install
 ```
 {% else %}
+This project is scaffolded with `uv`
+
 ```bash
 uv sync
 ```
@@ -19,5 +23,7 @@ uv sync
 - `manuscript.qmd` — the manuscript (Quarto manuscript project; render with `quarto render`)
 - `data/` — input data
 - `figures/` — output figures
-- `scripts/` — scripts, incl. Slurm jobs
+- `scripts/` — general scripts
 - `references.bib` — bibliography
+
+The recommended folder structure is to name each analysis step by step, e.g. `00_data_mining` or `01_data_mining`. You can be pretty flexible inside of it, but I personally recommend adding specific `notes.qmd` files which serve as a "lab notebook" for that specific analysis, and a `scripts/` folder to hold any reusable code for that specific task

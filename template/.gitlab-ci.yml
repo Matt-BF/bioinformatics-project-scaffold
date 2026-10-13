@@ -1,0 +1,10 @@
+image: ghcr.io/quarto-dev/quarto-full:1.9.38
+
+pages:
+  script:
+    - quarto render
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
