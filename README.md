@@ -5,7 +5,7 @@ This repo helps scaffold new bioinformatics projects according to my preferred w
 
 To create a new project, use
 ```sh
-copier copy --trust gh:Matt-BF/bioinformatics-project-scaffold my-new-project
+copier copy gh:Matt-BF/bioinformatics-project-scaffold my-new-project
 ```
 Change `my-new-project` to the name you want for your project.
 
@@ -13,16 +13,16 @@ You can also use copier without installing, although you still need `uv` or `pix
 
 With `uv`
 ```sh
-uvx copier copy --trust gh:Matt-BF/bioinformatics-project-scaffold my-new-project
+uvx copier copy gh:Matt-BF/bioinformatics-project-scaffold my-new-project
 ```
 
 With `pixi`
 ```sh
-pixi exec copier copy --trust gh:Matt-BF/bioinformatics-project-scaffold my-new-project
+pixi exec copier copy gh:Matt-BF/bioinformatics-project-scaffold my-new-project
 ```
 
 ## Scaffolding
-The template prompts to init the project with either `pixi` or `uv`, and goes through a series of questions to start the project. Many of them have default answers, so you can just press enter to keep going
+The template prompts to init the project with either `pixi` or `uv`, and goes through a series of questions to start the project. Many of them have default answers, so you can just press enter to keep going. The environment is not installed automatically — run `pixi install` (or `uv sync`) and `git init` when you start working on the project
 
 ## Structure
 - `manuscript.qmd` — the manuscript (Quarto manuscript project; render with `quarto render`)

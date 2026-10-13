@@ -66,11 +66,6 @@ use_r_env:
   default: false
   when: "{{ env_manager == 'pixi' }}"
 
-install_deps:
-  type: bool
-  help: Install dependencies right after scaffolding (pixi install / uv sync)?
-  default: true
-
 ci_platform:
   type: str
   help: CI to render the manuscript and deploy to pages
@@ -78,14 +73,3 @@ ci_platform:
     - gitlab
     - github
   default: gitlab
-
-# ---------------------------------------------------------------------------
-# Post-generation tasks (run in the destination directory)
-# ---------------------------------------------------------------------------
-
-_tasks:
-  - git init
-  - command: pixi install
-    when: "{{ _copier_operation == 'copy' and env_manager == 'pixi' and install_deps }}"
-  - command: uv sync
-    when: "{{ _copier_operation == 'copy' and env_manager == 'uv' and install_deps }}"
