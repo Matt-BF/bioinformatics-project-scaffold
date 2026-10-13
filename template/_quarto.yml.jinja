@@ -1,0 +1,24 @@
+project:
+  type: manuscript
+  output-dir: public
+
+manuscript:
+  article: "manuscript.qmd"
+
+format:
+  html:
+    code-fold: true
+    code-wrap: true
+    css: main.css
+  docx:
+    link-citations: true
+    link-bibliography: true
+
+execute:
+  freeze: true
+
+callout-appearance: simple
+
+highlight-style: github
+
+bibliography: references.bib

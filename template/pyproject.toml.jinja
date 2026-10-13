@@ -1,0 +1,12 @@
+# Project metadata + dependencies (uv) — docs: https://docs.astral.sh/uv/concepts/projects/layout/
+[project]
+name = "{{ project_name }}"
+version = "0.1.0"
+description = "{{ description }}"
+authors = [{ name = "{{ author_name }}", email = "{{ author_email }}" }]
+requires-python = "{{ python_version }}"
+dependencies = [
+    "marimo",
+    "polars",
+    "lets-plot",
+]

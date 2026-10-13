@@ -1,0 +1,74 @@
+# Copier template settings and questions
+# Docs: https://copier.readthedocs.io/en/stable/configuring.html
+
+# All files under template/ are what gets copied into generated projects.
+# Only files ending in .jinja are rendered (default suffix, kept explicit here).
+_subdirectory: template
+_templates_suffix: .jinja
+
+# ---------------------------------------------------------------------------
+# Questions (asked on `copier copy`; Enter accepts the default)
+# ---------------------------------------------------------------------------
+
+project_name:
+  type: str
+  help: Project name (used as pixi.toml name and Quarto project title)
+  validator: >-
+    {% if not (project_name | regex_search('^[a-z][a-z0-9_-]+$')) %}
+    Use lowercase letters, digits, dashes or underscores; start with a letter.
+    {% endif %}
+
+description:
+  type: str
+  help: Short project description
+  default: Add a short description here
+
+author_name:
+  type: str
+  help: Author name
+  default: Mateus B. Fiamenghi
+
+author_email:
+  type: str
+  help: Author email
+  default: mbfiamenghi@gmail.com
+
+affiliation:
+  type: str
+  help: Your primary affiliation
+  default: Joint Genome Institute, Lawrence Berkeley National Laboratory
+
+env_manager:
+  type: str
+  help: Environment and dependency manager
+  choices:
+    - pixi
+    - uv
+  default: pixi
+
+python_version:
+  type: str
+  help: Python version constraint for the default pixi environment
+  default: ">=3.12,<4"
+
+use_r_env:
+  type: bool
+  help: Add an R environment (feature r-env) to pixi.toml?
+  default: false
+  when: "{{ env_manager == 'pixi' }}"
+
+install_deps:
+  type: bool
+  help: Install dependencies right after scaffolding (pixi install / uv sync)?
+  default: true
+
+# ---------------------------------------------------------------------------
+# Post-generation tasks (run in the destination directory)
+# ---------------------------------------------------------------------------
+
+_tasks:
+  - git init
+  - command: pixi install
+    when: "{{ _copier_operation == 'copy' and env_manager == 'pixi' and install_deps }}"
+  - command: uv sync
+    when: "{{ _copier_operation == 'copy' and env_manager == 'uv' and install_deps }}"

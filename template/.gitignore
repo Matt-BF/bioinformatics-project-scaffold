@@ -1,0 +1,22 @@
+# Environments
+.pixi/
+.venv/
+
+# Quarto build output
+.quarto/
+public/
+
+# Python
+__pycache__/
+*.pyc
+
+# R
+.Rhistory
+.RData
+
+# HPC
+slurm-*.out
+.nextflow/
+.nextflow.log*
+
+# Lockfiles (pixi.lock, uv.lock) are committed — do NOT ignore them

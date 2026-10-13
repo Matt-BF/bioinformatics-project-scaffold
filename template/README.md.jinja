@@ -1,0 +1,23 @@
+# {{ project_name | replace('-', ' ') | replace('_', ' ') | title }}
+
+{{ description }}
+
+## Setup
+
+{% if env_manager == 'pixi' %}
+```bash
+pixi install
+```
+{% else %}
+```bash
+uv sync
+```
+{% endif %}
+
+## Layout
+
+- `manuscript.qmd` — the manuscript (Quarto manuscript project; render with `quarto render`)
+- `data/` — input data
+- `figures/` — output figures
+- `scripts/` — scripts, incl. Slurm jobs
+- `references.bib` — bibliography

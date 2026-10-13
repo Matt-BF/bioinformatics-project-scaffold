@@ -1,0 +1,25 @@
+# Pixi project file — docs: https://pixi.sh/latest/reference/pixi_manifest.html
+[workspace]
+authors = ["{{ author_name }} <{{ author_email }}>"]
+channels = ["conda-forge", "bioconda"]
+description = "{{ description }}"
+name = "{{ project_name }}"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[dependencies]
+python = "{{ python_version }}"
+marimo = "*"
+polars = "*"
+lets-plot = "*"
+{% if use_r_env %}
+
+[feature.r-env.dependencies]
+r-base = "*"
+r-ggplot2 = "*"
+r-tidyverse = "*"
+
+[environments]
+# R lives in an isolated environment: `pixi shell -e r-env`
+r-env = { features = ["r-env"], no-default-feature=true }
+{% endif %}
