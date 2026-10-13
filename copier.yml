@@ -45,7 +45,7 @@ orcid:
 affiliation:
   type: str
   help: Your primary affiliation
-  default: Joint Genome Institute, Lawrence Berkeley National Laboratory
+  default: DOE Joint Genome Institute, Lawrence Berkeley National Laboratory
 
 env_manager:
   type: str
