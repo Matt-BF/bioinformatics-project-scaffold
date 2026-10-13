@@ -62,6 +62,14 @@ install_deps:
   help: Install dependencies right after scaffolding (pixi install / uv sync)?
   default: true
 
+ci_platform:
+  type: str
+  help: CI to render the manuscript and deploy to pages
+  choices:
+    - gitlab
+    - github
+  default: gitlab
+
 # ---------------------------------------------------------------------------
 # Post-generation tasks (run in the destination directory)
 # ---------------------------------------------------------------------------
