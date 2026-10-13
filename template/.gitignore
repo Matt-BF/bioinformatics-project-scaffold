@@ -20,6 +20,10 @@ slurm-*.out
 .nextflow/
 .nextflow.log*
 
+# Binaries & containers
+binaries/
+containers/
+
 # Large files
 data/
 *.tsv

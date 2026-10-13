@@ -33,6 +33,15 @@ author_email:
   help: Author email
   default: mbfiamenghi@gmail.com
 
+orcid:
+  type: str
+  help: Your ORCID iD
+  default: 0000-0003-4535-8594
+  validator: >-
+    {% if not (orcid | regex_search('^\d{4}-\d{4}-\d{4}-\d{3}[0-9X]$')) %}
+    ORCID must look like 0000-0002-1825-0097.
+    {% endif %}
+
 affiliation:
   type: str
   help: Your primary affiliation
