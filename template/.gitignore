@@ -1,6 +1,7 @@
 # Environments
 .pixi/
 .venv/
+!./pixi/config.toml
 
 # Quarto build output
 .quarto/
@@ -19,4 +20,12 @@ slurm-*.out
 .nextflow/
 .nextflow.log*
 
-# Lockfiles (pixi.lock, uv.lock) are committed — do NOT ignore them
+# Large files
+data/
+*.tsv
+*.parquet
+*.csv
+*.fna
+*.fna.*
+*.faa
+*.faa.*
